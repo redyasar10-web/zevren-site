@@ -112,15 +112,15 @@ if (!REDUCED) {
 /* ---------- generic section reveals: small, quick, once ---------- */
 $$("[data-rv]").forEach((el) => {
   const targets = el.dataset.rv === "self" ? [el] : $$(el.dataset.rv, el);
-  gsap.set(targets, REDUCED ? {} : { opacity: 0, y: 10 });
+  gsap.set(targets, REDUCED ? {} : { opacity: 0, y: 10, filter: "blur(6px)" });
   ScrollTrigger.create({
     trigger: el,
     start: "top 80%",
     once: true,
     onEnter: () =>
       gsap.to(targets, {
-        opacity: 1, y: 0,
-        duration: REDUCED ? 0 : 0.5,
+        opacity: 1, y: 0, filter: "blur(0px)",
+        duration: REDUCED ? 0 : 0.55,
         stagger: 0.06,
         ease: "power2.out",
         overwrite: "auto",
@@ -149,6 +149,33 @@ if (heroCard) {
           scrub: true,
         },
       });
+    // pointer tilt once flattened — user-initiated only, modest range
+    const qrx = gsap.quickTo(heroCard, "rotationY", { duration: 0.5, ease: "power2.out" });
+    const qry = gsap.quickTo(heroCard, "rotationX", { duration: 0.5, ease: "power2.out" });
+    let tiltOn = false;
+    ScrollTrigger.create({
+      trigger: ".hero__cardwrap", start: "top 35%",
+      onEnter: () => { tiltOn = true; }, onLeaveBack: () => { tiltOn = false; qrx(0); qry(0); },
+    });
+    heroCard.addEventListener("pointermove", (e) => {
+      if (!tiltOn) return;
+      const r = heroCard.getBoundingClientRect();
+      qrx(((e.clientX - r.left) / r.width - 0.5) * 7);
+      qry(-((e.clientY - r.top) / r.height - 0.5) * 5);
+    });
+    heroCard.addEventListener("pointerleave", () => { qrx(0); qry(0); });
+    // the phone settles into place as the card flattens
+    const phone = $(".demo-phone");
+    if (phone) {
+      gsap.fromTo(phone, { y: 64, rotation: 11, opacity: 0 },
+        { y: 0, rotation: 4, opacity: 1, ease: "none",
+          scrollTrigger: { trigger: ".hero__cardwrap", start: "top 80%", end: "top 30%", scrub: true } });
+    }
+    // after it flattens, keep scrolling: the site scrolls inside its screen
+    gsap.to(".demo__site", {
+      y: -34, ease: "none",
+      scrollTrigger: { trigger: ".hero__cardwrap", start: "top 28%", end: "top -30%", scrub: true },
+    });
     // the statement recedes gently as the product arrives (their Header translate)
     gsap.to(".hero__head", {
       y: -60, opacity: 0.55,
@@ -162,7 +189,7 @@ if (heroCard) {
    per-char clipped rise (y in, -120% out, 18-25ms stagger). */
 const rot = $("#heroRot");
 if (rot && !REDUCED) {
-  const WORDS = ["business.", "salon.", "caf\u00e9.", "clinic.", "shop.", "firm.", "business."];
+  const WORDS = ["business.", "salon.", "caf\u00e9.", "clinic.", "shop.", "firm."];
   let wi = 0;
   const swap = () => {
     const out = $(".rot__word", rot);
@@ -177,7 +204,7 @@ if (rot && !REDUCED) {
     chars.forEach((c) => out.appendChild(c));
     gsap.to(chars, {
       yPercent: -120, opacity: 0,
-      duration: 0.32, stagger: 0.018, ease: "power2.in",
+      duration: 0.22, stagger: 0.011, ease: "power2.in",
       onComplete: () => {
         wi = (wi + 1) % WORDS.length;
         out.textContent = "";
@@ -189,14 +216,14 @@ if (rot && !REDUCED) {
           return s;
         });
         ncs.forEach((c) => out.appendChild(c));
-        gsap.to(ncs, { y: 0, duration: 0.5, stagger: 0.025, ease: "power3.out" });
+        gsap.to(ncs, { y: 0, duration: 0.42, stagger: 0.018, ease: "power3.out" });
       },
     });
   };
   let rotTimer = null;
-  const startRot = () => { if (!rotTimer) rotTimer = setInterval(swap, 2600); };
+  const startRot = () => { if (!rotTimer) rotTimer = setInterval(swap, 2000); };
   const stopRot = () => { clearInterval(rotTimer); rotTimer = null; };
-  setTimeout(startRot, 2300);
+  setTimeout(startRot, 1700);
   document.addEventListener("visibilitychange", () =>
     document.hidden ? stopRot() : startRot());
   // rest = calm: stop rotating once the product card is the focus
@@ -206,26 +233,39 @@ if (rot && !REDUCED) {
   });
 }
 
-/* ---------- handled: readout resolves once, quietly ---------- */
+/* ---------- handled: pinned scroll chapter ----------
+   The readout resolves line-by-line as you scroll through the chapter,
+   then the clean front builds. 1:1 scrubbed — the scrollbar is the clock. */
 const readout = $(".readout");
-if (readout) {
+const chapter = $(".handled-chapter");
+if (readout && chapter) {
   const rows = $$(".readout__row", readout);
-  ScrollTrigger.create({
-    trigger: readout,
-    start: "top 76%",
-    once: true,
-    onEnter: () => {
-      rows.forEach((row, i) => {
-        gsap.to(row, {
-          opacity: 1, y: 0, filter: "blur(0px)",
-          duration: REDUCED ? 0 : 0.45,
-          delay: REDUCED ? 0 : i * 0.09,
-          ease: "power2.out",
-          onComplete: () => row.classList.add("is-on"),
-        });
-      });
-    },
-  });
+  const skels = $$(".browserframe__body > *");
+  const caption = $(".handled__front-caption");
+  if (REDUCED) {
+    rows.forEach((r) => { r.style.opacity = 1; r.style.transform = "none"; r.style.filter = "none"; r.classList.add("is-on"); });
+    gsap.set(skels, { scaleX: 1 });
+  } else {
+    gsap.set(skels, { scaleX: 0, transformOrigin: "0 50%" });
+    if (caption) gsap.set(caption, { opacity: 0 });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: chapter,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+    rows.forEach((row, i) => {
+      const dot = $(".readout__dot", row);
+      tl.to(row, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "none" }, i * 0.75);
+      if (dot) tl.to(dot, { backgroundColor: "#2A4FE0", duration: 0.2, ease: "none" }, i * 0.75 + 0.45);
+    });
+    tl.to(skels, { scaleX: 1, duration: 0.55, stagger: 0.18, ease: "none" }, rows.length * 0.75 + 0.2);
+    if (caption) tl.to(caption, { opacity: 1, duration: 0.4, ease: "none" }, ">-0.2");
+    const stamp = $(".handled__stamp");
+    if (stamp) tl.to(stamp, { opacity: 1, duration: 0.4, ease: "none" }, ">");
+  }
 }
 
 /* connector pulses — slow, few, peripheral */
@@ -247,87 +287,35 @@ if (flow && !REDUCED) {
   });
 }
 
-/* the clean front builds once */
-const frontFrame = $(".browserframe");
-if (frontFrame && !REDUCED) {
-  const skels = $$(".browserframe__body > *", frontFrame);
-  gsap.set(skels, { scaleX: 0, transformOrigin: "0 50%" });
-  ScrollTrigger.create({
-    trigger: frontFrame,
-    start: "top 80%",
-    once: true,
-    onEnter: () =>
-      gsap.to(skels, { scaleX: 1, duration: 0.5, stagger: 0.08, ease: "power2.inOut" }),
-  });
-}
-
-/* ---------- manifesto: 1:1 scrubbed reveal, short range, readable base ---------- */
+/* ---------- manifesto: the chores get crossed off (scrubbed 1:1) ---------- */
 const manifesto = $(".manifesto");
 if (manifesto) {
   const mCanvas = $(".manifesto__canvas canvas");
   if (mCanvas) new SignalField(mCanvas, { mode: 1 });
-  const words = $$(".manifesto__text .w, .manifesto__brand .w");
-  if (!REDUCED && words.length) {
-    gsap.to(words, {
-      opacity: 1,
-      ease: "none",
-      stagger: 0.03,
+  const chores = $$(".chore", manifesto);
+  if (!REDUCED && chores.length) {
+    const mtl = gsap.timeline({
       scrollTrigger: {
         trigger: manifesto,
-        start: "top 70%",
-        end: "center 45%",
+        start: "top top",
+        end: "bottom bottom",
         scrub: true,
       },
     });
-  } else {
-    words.forEach((w) => (w.style.opacity = 1));
-  }
-  /* elegant shapes drift in once (HeroGeometric entrance, ~2.2s) */
-  const shapes = $$(".mshape", manifesto);
-  if (shapes.length) {
-    if (REDUCED) {
-      gsap.set(shapes, { opacity: 1 });
-    } else {
-      shapes.forEach((sh) => {
-        const r = parseFloat(sh.style.getPropertyValue("--r")) || 0;
-        gsap.set(sh, { opacity: 0, y: -110, rotation: r - 15 });
-      });
-      ScrollTrigger.create({
-        trigger: manifesto,
-        start: "top 72%",
-        once: true,
-        onEnter: () =>
-          shapes.forEach((sh, i) => {
-            const r = parseFloat(sh.style.getPropertyValue("--r")) || 0;
-            gsap.to(sh, {
-              opacity: 1, y: 0, rotation: r,
-              duration: 2.2, delay: 0.2 + i * 0.15,
-              ease: "expo.out",
-            });
-          }),
-      });
-    }
-  }
-  /* the brand underline draws itself (AnimatedText pathLength mechanic) */
-  const upath = $(".manifesto__underline path", manifesto);
-  if (upath) {
-    const len = upath.getTotalLength();
-    if (REDUCED) {
-      gsap.set(upath, { strokeDasharray: "none" });
-    } else {
-      gsap.set(upath, { strokeDasharray: len, strokeDashoffset: len });
-      ScrollTrigger.create({
-        trigger: ".manifesto__brand",
-        start: "top 75%",
-        once: true,
-        onEnter: () =>
-          gsap.to(upath, { strokeDashoffset: 0, duration: 1.4, delay: 0.35, ease: "power2.inOut" }),
-      });
-    }
+    chores.forEach((c, i) => {
+      mtl.to($(".chore__strike", c), { scaleX: 1, duration: 0.55, ease: "none" }, i * 0.62);
+      mtl.to($(".chore__word", c), { opacity: 0.4, duration: 0.3, ease: "none" }, i * 0.62 + 0.3);
+    });
+    const after = chores.length * 0.62 + 0.35;
+    mtl.to(".manifesto__never", { opacity: 1, y: 0, duration: 0.5, ease: "none" }, after);
+    mtl.to(".manifesto__brand", { opacity: 1, y: 0, duration: 0.6, ease: "none" }, after + 0.45);
+    mtl.to(".manifesto__bar", { scaleX: 1, duration: 0.6, ease: "none" }, after + 0.85);
+    mtl.to(".manifesto__tail", { opacity: 1, duration: 0.4, ease: "none" }, after + 1.2);
+    mtl.to(".manifesto__brand", { backgroundPosition: "-60% 0", duration: 0.9, ease: "none" }, after + 1.25);
+    mtl.to({}, { duration: 0.5 }); // resting beat at the end of the chapter
   }
 }
 
-/* ---------- pricing ---------- */
 $$("[data-count]").forEach((el) => {
   const target = parseInt(el.dataset.count, 10);
   ScrollTrigger.create({
@@ -431,4 +419,34 @@ if (callbar) {
     onEnter: () => callbar.classList.add("is-visible"),
     onLeaveBack: () => callbar.classList.remove("is-visible"),
   });
+}
+
+/* ---------- status strip: comes online once, then still ---------- */
+const strip = $(".statusstrip");
+if (strip && !REDUCED) {
+  const dots = $$(".statusstrip__grid .dot", strip);
+  const states = $$(".statusstrip__grid .state", strip);
+  gsap.set(dots, { backgroundColor: "#3A4663" });
+  gsap.set(states, { opacity: 0.4 });
+  ScrollTrigger.create({
+    trigger: strip,
+    start: "top 88%",
+    once: true,
+    onEnter: () => {
+      gsap.to(dots, { backgroundColor: "#6E8CFF", duration: 0.3, stagger: 0.14, ease: "none" });
+      gsap.to(states, { opacity: 1, duration: 0.3, stagger: 0.14, ease: "none" });
+    },
+  });
+}
+
+/* ---------- footer: local time (Wooster, OH — instrument detail) ---------- */
+const clock = $("#footClock");
+if (clock) {
+  const tick = () => {
+    clock.textContent = new Date().toLocaleTimeString("en-US", {
+      hour: "numeric", minute: "2-digit", timeZone: "America/New_York",
+    }).toLowerCase();
+  };
+  tick();
+  setInterval(tick, 60000);
 }
