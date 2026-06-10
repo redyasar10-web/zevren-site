@@ -1,0 +1,115 @@
+/* ============================================================
+   Zevren — Design tokens (v4 · "The clean front, the handled back")
+   Ink blue-black · cool structural paper · ONE signal blue.
+   IBM Plex Sans (display+body) · IBM Plex Mono (system voice).
+   WCAG AA verified ratios noted inline. No second accent. No gradients
+   except functional glow on dark instrument panels.
+   ============================================================ */
+
+/* ---- Self-hosted fonts ---- */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexSans-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
+}
+
+:root {
+  /* ---- Ink (cool near-blacks) ---- */
+  --ink-deep:   #070B12;
+  --ink:        #0D1422;
+  --ink-soft:   #1B2536;
+
+  /* ---- Cool structural neutrals ---- */
+  --paper:      #EEF1F5;
+  --surface:    #FFFFFF;
+  --w-100:      #E7EBF1;
+  --w-tint:     #E4E9F2;
+  --w-border:   #DCE2EB;
+  --w-border-2: #C3CCD9;
+
+  --text-primary:   #16202E; /* 14.8:1 on paper */
+  --text-secondary: #45526A; /*  8.0:1 on paper */
+  --text-muted:     #5E6B82; /*  5.4:1 on paper */
+  --text-faint:     #8893A5;
+  --text-heading:   var(--ink);
+
+  --text-on-dark:        #EEF2F8;
+  --text-on-dark-muted:  rgba(238,242,248,0.70);
+  --text-on-dark-faint:  rgba(238,242,248,0.46);
+
+  /* ---- Signal blue (THE accent — the working link) ---- */
+  --signal:        #2A4FE0; /* fills w/ white text 6.0:1 */
+  --signal-hover:  #2241C4;
+  --signal-ink:    #2342C7; /* text/links on white 6.9:1 */
+  --signal-bright: #6E8CFF; /* on ink */
+  --signal-tint:   #E2E8FE;
+
+  --danger: #C23A36;
+
+  /* ---- Aliases ---- */
+  --color-bg:      var(--paper);
+  --accent:        var(--signal);
+  --accent-hover:  var(--signal-hover);
+  --border:        var(--w-border);
+  --border-strong: var(--w-border-2);
+  --focus-ring:    var(--signal);
+
+  /* ---- Type ---- */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: var(--font-sans);
+
+  --tracking-display: -0.035em;
+  --tracking-tight:   -0.02em;
+  --tracking-mono:    0.02em;
+  --tracking-wide:    0.16em;
+
+  /* ---- Spacing (8px grid) ---- */
+  --space-1: 4px;  --space-2: 8px;   --space-3: 16px; --space-4: 24px;
+  --space-5: 32px; --space-6: 40px;  --space-7: 48px; --space-8: 64px;
+  --space-9: 80px; --space-10: 96px; --space-12: 128px;
+
+  /* ---- Radius (instrument-precise) ---- */
+  --radius-button: 8px;
+  --radius-card:   12px;
+  --radius-badge:  6px;
+
+  /* ---- Shadow ---- */
+  --shadow-card:       0 1px 0 rgba(13,20,34,0.04), 0 8px 24px rgba(13,20,34,0.06);
+  --shadow-card-hover: 0 1px 0 rgba(13,20,34,0.05), 0 14px 36px rgba(13,20,34,0.10);
+
+  /* ---- Layout ---- */
+  --container-max: 1180px;
+  --container-pad: 24px;
+  --nav-h: 72px;
+
+  /* ---- Motion (the system clock) ---- */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  150ms;
+  --dur-base:  250ms;
+  --dur-slow:  600ms;
+}

@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zevren — Nothing hidden. Everything handled.</title>
+<meta name="description" content="Zevren designs, hosts, and maintains a professional website for your local business — domain, hosting, security, and updates all handled. $500 to build, $49/month. Phone-first, no lock-in.">
+<link rel="icon" href="/assets/logo/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/logo/favicon-180.png">
+<meta property="og:title" content="Zevren — Nothing hidden. Everything handled.">
+<meta property="og:description" content="We run the website. You run the business. $500 to build · $49/month · cancel anytime.">
+<meta name="theme-color" content="#0D1422">
+<link rel="stylesheet" href="/src/styles/tokens.css">
+<link rel="stylesheet" href="/src/styles/base.css">
+<link rel="stylesheet" href="/src/styles/site.css">
+</head>
+<body>
+
+<!-- scroll progress hairline -->
+<div class="progress-rail" aria-hidden="true"><div class="progress-rail__bar"></div></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="logo" aria-label="Zevren home" style="font-size:26px">zevren<span class="dot"></span></a>
+    <nav class="nav__links hide-mobile" aria-label="Primary">
+      <a class="nav__link" href="#handled">What's handled</a>
+      <a class="nav__link" href="#pricing">Pricing</a>
+      <a class="nav__link" href="#faq">FAQ</a>
+      <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+      <a class="nav__phone" href="tel:+13300000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (330) 000-0000
+      </a>
+      <a class="btn btn--sm" href="tel:+13300000000">Call us</a>
+    </nav>
+    <button class="nav__burger only-mobile" aria-label="Menu" aria-expanded="false">
+      <svg class="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <svg class="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="nav__mobile">
+    <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+    <a class="nav__mobile-phone" href="tel:+13300000000">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (330) 000-0000
+    </a>
+    <a href="#handled">What's handled</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO — scroll story: the statement, then the product ============ -->
+  <section class="hero">
+    <div class="hero__canvas"><canvas aria-hidden="true"></canvas></div>
+    <div class="hero__scroller">
+      <div class="hero__persp">
+
+        <div class="container hero__head">
+          <span class="hero__kicker hero__fade">
+            <span class="kicker-dot" aria-hidden="true"></span>
+            <span class="kicker" data-text="local business websites · wayne county, oh">local business websites · wayne county, oh</span>
+          </span>
+          <h1 class="hero__h1">
+            <span class="line">
+              <span class="wd"><span>We</span></span>
+              <span class="wd"><span>run</span></span>
+              <span class="wd"><span>the</span></span>
+              <span class="wd"><span>website.</span></span>
+            </span>
+            <span class="line">
+              <span class="wd"><span>You</span></span>
+              <span class="wd"><span>run</span></span>
+              <span class="wd"><span>the</span></span>
+              <span class="rot" id="heroRot" aria-label="business"><span class="rot__word">business.</span></span>
+            </span>
+          </h1>
+          <p class="hero__lead hero__fade">
+            We design it, host it, secure it, and keep it running —
+            one flat price, one phone call to start.
+          </p>
+          <div class="hero__ctas hero__fade">
+            <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+            <a class="btn btn--lg" href="tel:+13300000000">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (330) 000-0000
+            </a>
+            <a class="textlink" href="#pricing">See pricing</a>
+          </div>
+          <p class="hero__price mono hero__fade">$500 to build · $49/month · cancel anytime</p>
+        </div>
+
+        <!-- the product: a Zevren-built site, flattening up out of perspective as you scroll -->
+        <div class="hero__cardwrap">
+          <div class="hero__card">
+            <div class="demo">
+              <div class="demo__chrome mono">
+                <span class="demo__dots"><span></span><span></span><span></span></span>
+                <span class="demo__url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  yourbusiness.com
+                </span>
+                <span class="demo__live"><span class="dot"></span>live</span>
+              </div>
+              <div class="demo__site">
+                <header class="demo__nav">
+                  <span class="demo__logo">Your Business<span class="d">.</span></span>
+                  <nav class="demo__links" aria-hidden="true"><span>Services</span><span>About</span><span>Hours</span></nav>
+                  <span class="demo__call">Call now</span>
+                </header>
+                <div class="demo__hero">
+                  <span class="demo__badge mono"><span class="dot"></span>open today · wayne county, oh</span>
+                  <h3>The local pro your neighbors call first.</h3>
+                  <p>Fast, friendly, and right around the corner — get a real person on the phone today.</p>
+                  <div class="demo__cta-row"><span class="demo__cta">Call (330) ··· ····</span><span class="demo__cta demo__cta--ghost">See services</span></div>
+                </div>
+                <div class="demo__cards">
+                  <div class="demo__card"><span class="demo__ic"></span><b>Services</b><i></i><i style="width:72%"></i></div>
+                  <div class="demo__card"><span class="demo__ic"></span><b>Service area</b><i></i><i style="width:64%"></i></div>
+                  <div class="demo__card"><span class="demo__ic"></span><b>Hours</b><i></i><i style="width:58%"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="hero__cardnote mono">// a zevren-built site — designed around your business, live in about two weeks</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SYSTEM STATUS STRIP (still — an instrument, not a marquee) ============ -->
+  <section class="statusstrip" aria-label="Everything Zevren handles">
+    <div class="container">
+      <ul class="statusstrip__grid mono">
+        <li><span class="label">domain &amp; hosting</span><span class="state"><span class="dot"></span>handled</span></li>
+        <li><span class="label">security &amp; ssl</span><span class="state"><span class="dot"></span>active</span></li>
+        <li><span class="label">updates &amp; upkeep</span><span class="state"><span class="dot"></span>ongoing</span></li>
+        <li><span class="label">a real local person</span><span class="state"><span class="dot"></span>on call</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ HANDLED (the concept) ============ -->
+  <section id="handled" class="section section--surface">
+    <div class="container">
+      <div class="section__head" data-rv=".kicker, .h2, .lead">
+        <span class="kicker">The handled back</span>
+        <h2 class="h2">Everything that keeps a website online — off your plate.</h2>
+        <p class="lead">
+          Running a website is a stack of small technical chores that never end.
+          You never see any of it. We hold the whole back end; you get a site that's simply live.
+        </p>
+      </div>
+
+      <div class="handled__grid">
+        <div>
+          <div class="kicker kicker--muted" style="margin-bottom:10px">// zevren handles</div>
+          <div class="readout">
+            <div class="readout__row">
+              <span class="readout__label">domain &amp; dns</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__row">
+              <span class="readout__label">hosting &amp; uptime</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__row">
+              <span class="readout__label">ssl / security</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__row">
+              <span class="readout__label">software updates</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__row">
+              <span class="readout__label">content edits</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__row">
+              <span class="readout__label">speed &amp; upkeep</span><span class="readout__leader"></span>
+              <span class="readout__status"><span class="readout__dot"></span><span class="readout__statustext" data-text="handled">handled</span></span>
+            </div>
+            <div class="readout__caption">// you never touch a login, a renewal, or a dashboard</div>
+          </div>
+        </div>
+
+        <!-- the flow: the handled back streaming into the clean front -->
+        <div class="handled__flow" aria-hidden="true">
+          <svg viewBox="0 0 64 280" preserveAspectRatio="none">
+            <path id="fl1" d="M 0 40 C 30 40, 34 140, 64 140" />
+            <path id="fl2" d="M 0 140 L 64 140" />
+            <path id="fl3" d="M 0 240 C 30 240, 34 140, 64 140" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="kicker kicker--muted" style="margin-bottom:10px">// you get</div>
+          <div class="browserframe">
+            <div class="browserframe__bar">
+              <div class="browserframe__dots"><span></span><span></span><span></span></div>
+              <span class="browserframe__url">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                yourbusiness.com
+              </span>
+              <span class="browserframe__live"><span class="dot"></span>live</span>
+            </div>
+            <div class="browserframe__body">
+              <div class="skel" style="width:55%"></div>
+              <div class="skel skel--head" style="width:82%"></div>
+              <div class="skel" style="width:70%"></div>
+              <div class="skel-row">
+                <div class="skel-cta"></div>
+                <div class="skel-ghost"></div>
+              </div>
+            </div>
+          </div>
+          <p class="handled__front-caption mono">// a clean, fast site — and your phone ringing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO (why we exist) ============ -->
+  <section class="manifesto" aria-label="Why Zevren exists">
+    <div class="manifesto__sticky">
+      <div class="manifesto__canvas"><canvas aria-hidden="true"></canvas></div>
+      <div class="manifesto__shapes" aria-hidden="true">
+        <span class="mshape" style="--w:560px; --h:130px; --r:12deg;  top:16%; left:-6%;"></span>
+        <span class="mshape mshape--b" style="--w:460px; --h:110px; --r:-15deg; top:72%; right:-4%;"></span>
+        <span class="mshape" style="--w:280px; --h:76px;  --r:-8deg;  bottom:8%; left:8%;"></span>
+        <span class="mshape mshape--b" style="--w:190px; --h:56px;  --r:20deg;  top:11%; right:16%;"></span>
+      </div>
+      <div class="container manifesto__inner">
+        <div class="manifesto__kicker kicker kicker--ondark">// why we exist</div>
+        <p class="manifesto__text">
+          <span class="w">Domains.</span> <span class="w">Renewals.</span>
+          <span class="w">Certificates.</span> <span class="w">Updates.</span>
+          <span class="w">That</span> <span class="w">was</span> <span class="w">never</span>
+          <span class="w">your</span> <span class="w">job.</span>
+          <span class="w">It's</span> <span class="w">ours.</span>
+        </p>
+        <p class="manifesto__brand">
+          <span class="brandline">
+            <span class="w sig">Nothing</span> <span class="w sig">hidden.</span>
+            <span class="w sig">Everything</span> <span class="w sig">handled.</span>
+            <svg class="manifesto__underline" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 0,10 Q 75,0 150,10 Q 225,20 300,10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            </svg>
+          </span>
+        </p>
+        <p class="manifesto__tail mono">// one flat price · a real local person · cancel anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section__head" data-rv=".kicker, .h2, .lead">
+        <span class="kicker">Pricing</span>
+        <h2 class="h2">Two flat numbers. Nothing hidden.</h2>
+        <p class="lead">
+          Most agencies won't show you this. Here's the whole thing — one price to build,
+          one to keep it running, everything included.
+        </p>
+      </div>
+
+      <!-- PRICING — confirm final $49/mo inclusions with founder. Front-end only: no forms/CRM/lead capture. -->
+      <div class="pricing__cards">
+        <article class="pricecard">
+          <div class="pricecard__label">One-time</div>
+          <div class="pricecard__price">
+            <span class="pricecard__amount" data-count="500">$500</span>
+            <span class="pricecard__suffix">to build</span>
+          </div>
+          <div class="pricecard__title">Designed &amp; launched</div>
+          <p class="pricecard__desc">
+            We design and build your site, write the content, and put it live —
+            once you've approved every page.
+          </p>
+          <div class="pricecard__items">
+            <div class="pricecard__item"><span>custom design &amp; build</span><span>included</span></div>
+            <div class="pricecard__item"><span>mobile-first, fast</span><span>included</span></div>
+            <div class="pricecard__item"><span>your copy, written for you</span><span>included</span></div>
+            <div class="pricecard__item"><span>launch &amp; go-live</span><span>included</span></div>
+            <div class="pricecard__item"><span>your approval first</span><span>included</span></div>
+          </div>
+          <div class="pricecard__total"><span>one-time</span><span>$500</span></div>
+          <div class="pricecard__cta">
+            <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+            <a class="btn btn--lg btn--ghost" href="tel:+13300000000">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call to start
+            </a>
+          </div>
+        </article>
+
+        <article class="pricecard pricecard--signal">
+          <div class="pricecard__label">Per month · live &amp; handled</div>
+          <div class="pricecard__price">
+            <span class="pricecard__amount" data-count="49">$49</span>
+            <span class="pricecard__suffix">/ month</span>
+          </div>
+          <div class="pricecard__title">Live &amp; handled</div>
+          <p class="pricecard__desc">
+            Everything it takes to keep your site online, fast, and secure —
+            handled every month, nothing gated.
+          </p>
+          <div class="pricecard__items">
+            <div class="pricecard__item"><span>domain registration &amp; renewal</span><span>handled</span></div>
+            <div class="pricecard__item"><span>hosting &amp; cdn</span><span>handled</span></div>
+            <div class="pricecard__item"><span>security &amp; ssl</span><span>handled</span></div>
+            <div class="pricecard__item"><span>software updates &amp; fixes</span><span>handled</span></div>
+            <div class="pricecard__item"><span>content edits, done for you</span><span>handled</span></div>
+            <div class="pricecard__item"><span>keeping it fast &amp; live</span><span>handled</span></div>
+            <div class="pricecard__item"><span>a real local person on the phone</span><span>handled</span></div>
+          </div>
+          <div class="pricecard__total"><span>per month</span><span>$49&nbsp;/&nbsp;mo</span></div>
+          <div class="pricecard__cta">
+            <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+            <a class="btn btn--lg" href="tel:+13300000000">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (330) 000-0000
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <p class="pricing__note mono">
+        Cancel anytime — no fees, no hassle. Your site stays live through the period you've
+        already paid for; after that, keeping it online is up to you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ WHO IT'S FOR ============ -->
+  <section class="section section--surface">
+    <div class="container">
+      <div class="section__head" data-rv=".kicker, .h2">
+        <span class="kicker">Who it's for</span>
+        <h2 class="h2">If your customers are local, this is for you.</h2>
+      </div>
+      <div class="who__cards" data-rv=".whocard">
+        <div class="whocard">
+          <div class="whocard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+          </div>
+          <div class="whocard__name">A hair salon</div>
+          <p class="whocard__blurb">Booked online while you're mid-cut — no phone tag.</p>
+        </div>
+        <div class="whocard">
+          <div class="whocard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+          </div>
+          <div class="whocard__name">A dental office</div>
+          <p class="whocard__blurb">New patients find you and pick up the phone.</p>
+        </div>
+        <div class="whocard">
+          <div class="whocard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+          </div>
+          <div class="whocard__name">An HVAC company</div>
+          <p class="whocard__blurb">Found the moment a furnace quits at 6am.</p>
+        </div>
+      </div>
+      <div class="who__chips mono">
+        <span class="note">// and</span>
+        <span class="chip">cafés</span><span class="chip">law offices</span><span class="chip">auto shops</span>
+        <span class="chip">contractors</span><span class="chip">studios</span><span class="chip">clinics</span>
+        <span class="chip">landscapers</span><span class="chip">retailers</span>
+        <span class="note">// examples, not a fixed list</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARE ============ -->
+  <section class="section compare">
+    <div class="container">
+      <div class="section__head" data-rv=".kicker, .h2">
+        <span class="kicker">Straight comparison</span>
+        <h2 class="h2">How we line up.</h2>
+      </div>
+      <div class="compare__scroll">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th class="is-zevren">zevren</th>
+              <th>most agencies</th>
+              <th>DIY builders</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>flat monthly price</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>$49 / mo</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>$300–1,500+/mo</span></span></td>
+              <td><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>$20–50/mo</span></span></td>
+            </tr>
+            <tr>
+              <td>done for you</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>completely</span></span></td>
+              <td><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>yes</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>you do it all</span></span></td>
+            </tr>
+            <tr>
+              <td>domain, hosting &amp; security</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>we hold it all</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>often extra</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>you manage it</span></span></td>
+            </tr>
+            <tr>
+              <td>no long-term contract</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>cancel anytime</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>12–18 mo lock-ins</span></span></td>
+              <td><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>yes</span></span></td>
+            </tr>
+            <tr>
+              <td>a real local person</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>answers the phone</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>ticket queue</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>none</span></span></td>
+            </tr>
+            <tr>
+              <td>one flat price, nothing gated</td>
+              <td class="is-zevren"><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>no per-page fees</span></span></td>
+              <td><span class="cell"><svg class="ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg><span>add-on creep</span></span></td>
+              <td><span class="cell"><svg class="draw-check ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>clear — but it's all you</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="section section--surface">
+    <div class="container container--narrow">
+      <div data-rv=".kicker, .h2">
+        <span class="kicker">FAQ</span>
+        <h2 class="h2">Questions we get.</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item is-open">
+          <button class="faq__q" aria-expanded="true">
+            <span>Who handles the domain and hosting?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            We do — all of it. Zevren registers your domain, pays for it, and hosts your site,
+            so you never touch a registrar, a renewal, or a login. Holding that technical weight
+            is the whole point; you just run your business.
+          </p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            <span>What happens if I cancel?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            Cancel anytime — no fees, no hassle. Your site stays live through the end of the
+            period you've already paid for, and you don't have to lift a finger in the meantime.
+            After that, keeping it online — hosting, domain, any changes — becomes your
+            responsibility. We don't hold anything over your head.
+          </p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            <span>What exactly does the $49/month cover?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            Hosting, your domain, security and SSL, software updates, keeping the site fast
+            and live, and content edits when you need them. One flat price, nothing gated.
+          </p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            <span>Do you build contact forms or handle leads?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            We build the front-end website — the pages your customers see. We don't run forms,
+            lead capture, or CRM systems. The site is built to get you found and get the phone
+            ringing; calls and texts come straight to you.
+          </p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            <span>How long does it take to launch?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            Usually about two weeks from the day we have your details and photos — most sites
+            go live in 7–10 business days. You approve everything before it goes public.
+          </p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            <span>Can I make changes after launch?</span><span class="x" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a"><div><p>
+            Yes. Call or text and we'll handle the update — most edits are included in your
+            monthly fee. Bigger additions, like a whole new page, may carry a small one-time
+            charge, and we'll always tell you before we touch anything.
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA (contained instrument panel) ============ -->
+  <section id="contact" class="finalcta">
+    <div class="container">
+      <div class="finalcta__panel">
+        <div class="finalcta__canvas" aria-hidden="true"></div>
+        <div class="finalcta__inner">
+      <span class="kicker kicker--ondark">Talk to a real person</span>
+      <h2>Call us and we'll take it from there.</h2>
+      <p class="sub">
+        One flat fee to build. One flat fee a month. We handle the rest —
+        and you never touch a login.
+      </p>
+      <div class="finalcta__btn">
+        <!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+        <a class="btn btn--lg" href="tel:+13300000000">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (330) 000-0000
+        </a>
+      </div>
+          <p class="finalcta__note mono">// call or text and we'll get back to you · cancel anytime, no fees</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__watermark" aria-hidden="true">zevren<span class="dot">.</span></div>
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <span class="logo logo--ondark" style="font-size:26px">zevren<span class="dot"></span></span>
+        <p class="footer__tag">Nothing hidden. Everything handled.</p>
+        <p class="footer__meta">© 2026 Zevren · Wayne County, Ohio.</p>
+      </div>
+      <div>
+        <div class="footer__head">Site</div>
+        <ul>
+          <li><a href="#handled">What's handled</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Call us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__head">Contact</div>
+        <!-- CONTACT PLACEHOLDER — Caleb's number before launch. Phone-first; no email. -->
+        <ul>
+          <li><a class="footer__phone" href="tel:+13300000000">(330) 000-0000</a></li>
+        </ul>
+        <p class="footer__local">We're local. Call or text us.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <div class="container">
+      <p>
+        Zevren is a front-end Website-as-a-Service provider. We are not affiliated with any
+        trade or professional licensing board. Client site content is the client's responsibility.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile sticky call bar -->
+<!-- CONTACT PLACEHOLDER — Caleb's number before launch -->
+<a class="callbar" href="tel:+13300000000" aria-label="Call Zevren">
+  <span class="dot" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Call (330) 000-0000
+</a>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
