@@ -8,7 +8,7 @@
 <link rel="icon" href="/assets/logo/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/logo/favicon-180.png">
 <meta property="og:title" content="Zevren — Nothing hidden. Everything handled.">
-<meta property="og:description" content="We run the website. You run the business. $500 to build · $49/month · cancel anytime.">
+<meta property="og:description" content="We run the website. You run the business. $500 to build + $49/month to run · cancel anytime.">
 <meta name="theme-color" content="#0D1422">
 <link rel="stylesheet" href="/src/styles/tokens.css">
 <link rel="stylesheet" href="/src/styles/base.css">
@@ -87,7 +87,7 @@
             </a>
             <a class="textlink" href="#pricing">See pricing</a>
           </div>
-          <p class="hero__price mono hero__fade">$500 to build · $49/month · cancel anytime</p>
+          <p class="hero__price mono hero__fade">$500 to build + $49/month to run · cancel anytime</p>
         </div>
 
         <!-- the product: a Zevren-built site, flattening up out of perspective as you scroll -->
@@ -255,7 +255,7 @@
           Nothing hidden. Everything handled.
           <span class="manifesto__bar" aria-hidden="true"></span>
         </p>
-        <p class="manifesto__tail mono">// one flat price · cancel anytime</p>
+        <p class="manifesto__tail mono">// $500 once + $49 a month · cancel anytime</p>
       </div>
     </div>
   </section>
@@ -281,63 +281,49 @@
         <span class="steps__item"><b>4</b> live in 24 hours</span>
       </div>
 
-      <!-- PRICING — confirm final $49/mo inclusions with founder. Front-end only: no forms/CRM/lead capture. -->
-      <div class="pricing__cards">
-        <article class="pricecard">
-          <div class="pricecard__label">One-time</div>
-          <div class="pricecard__price">
-            <span class="pricecard__amount" data-count="500">$500</span>
-            <span class="pricecard__suffix">to build</span>
-          </div>
-          <div class="pricecard__title">Designed &amp; launched</div>
-          <p class="pricecard__desc">
-            We design and build your site, write the content, and put it live —
-            once you've approved every page.
-          </p>
-          <div class="pricecard__items">
-            <div class="pricecard__item"><span>custom design &amp; build</span><span>included</span></div>
-            <div class="pricecard__item"><span>mobile-first, fast</span><span>included</span></div>
-            <div class="pricecard__item"><span>your copy, written for you</span><span>included</span></div>
-            <div class="pricecard__item"><span>launch &amp; go-live</span><span>included</span></div>
-            <div class="pricecard__item"><span>your approval first</span><span>included</span></div>
-          </div>
-          <div class="pricecard__total"><span>one-time</span><span>$500</span></div>
-          <div class="pricecard__cta">
-                  <a class="btn btn--lg btn--ghost" href="tel:+19788720332">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call to start
-            </a>
-          </div>
-        </article>
+      <!-- PRICING — ONE plan: $500 once + $49/mo. Single card so it can never read as a choice. -->
+      <div class="plan">
+        <span class="beam" aria-hidden="true"></span>
+        <div class="plan__label mono">The plan — there's only one</div>
 
-        <article class="pricecard pricecard--signal"><span class="beam" aria-hidden="true"></span>
-          <div class="pricecard__label">Per month · live &amp; handled</div>
-          <div class="pricecard__price">
-            <span class="pricecard__amount" data-count="49">$49</span>
-            <span class="pricecard__suffix">/ month</span>
+        <div class="plan__body">
+          <div class="plan__equation" aria-label="500 dollars once to build, plus 49 dollars per month to run">
+            <div class="plan__term">
+              <span class="plan__amount" data-count="500">$500</span>
+              <span class="plan__term-label mono">once · we build it</span>
+            </div>
+            <span class="plan__plus" aria-hidden="true">+</span>
+            <div class="plan__term">
+              <span class="plan__amount" data-count="49">$49</span>
+              <span class="plan__term-label mono">every month · we run it</span>
+            </div>
           </div>
-          <div class="pricecard__title">Live &amp; handled</div>
-          <p class="pricecard__desc">
-            Everything it takes to keep your site online, fast, and secure —
-            handled every month, nothing gated.
-          </p>
-          <div class="pricecard__items">
-            <div class="pricecard__item"><span>domain registration &amp; renewal</span><span>handled</span></div>
-            <div class="pricecard__item"><span>hosting &amp; cdn</span><span>handled</span></div>
-            <div class="pricecard__item"><span>security &amp; ssl</span><span>handled</span></div>
-            <div class="pricecard__item"><span>software updates &amp; fixes</span><span>handled</span></div>
-            <div class="pricecard__item"><span>content edits, done for you</span><span>handled</span></div>
-            <div class="pricecard__item"><span>keeping it fast &amp; live</span><span>handled</span></div>
-            <div class="pricecard__item"><span>a real person on the phone</span><span>handled</span></div>
+
+          <div class="plan__groups">
+            <div class="plan__group">
+              <div class="plan__group-head mono">the build — $500, once</div>
+              <div class="plan__item"><span>custom design &amp; build</span><span>included</span></div>
+              <div class="plan__item"><span>your copy, written for you</span><span>included</span></div>
+              <div class="plan__item"><span>mobile-first, fast</span><span>included</span></div>
+              <div class="plan__item"><span>your approval before launch</span><span>included</span></div>
+            </div>
+            <div class="plan__group">
+              <div class="plan__group-head mono">every month — $49, flat</div>
+              <div class="plan__item"><span>domain, hosting &amp; ssl</span><span>handled</span></div>
+              <div class="plan__item"><span>updates, fixes &amp; backups</span><span>handled</span></div>
+              <div class="plan__item"><span>content edits, done for you</span><span>handled</span></div>
+              <div class="plan__item"><span>a real person on the phone</span><span>handled</span></div>
+            </div>
           </div>
-          <div class="pricecard__total"><span>per month</span><span>$49&nbsp;/&nbsp;mo</span></div>
-          <div class="pricecard__cta">
-                  <a class="btn btn--lg" href="tel:+19788720332">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call (978) 872-0332
-            </a>
-          </div>
-        </article>
+        </div>
+
+        <div class="plan__foot">
+          <p class="plan__both mono">Both, always — $500 when we build it, then $49 a month while we run it.</p>
+          <a class="btn btn--lg" href="tel:+19788720332">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (978) 872-0332
+          </a>
+        </div>
       </div>
 
       <p class="pricing__note mono">

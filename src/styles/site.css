@@ -602,91 +602,85 @@
 }
 
 /* ---------- pricing ---------- */
-.pricing__cards {
-  display: grid; grid-template-columns: 0.92fr 1.08fr;
-  gap: 28px; margin-top: 52px; align-items: start;
-}
-.pricecard {
+.plan {
   position: relative;
+  margin-top: 48px;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  border: 1px solid color-mix(in srgb, var(--signal) 45%, var(--border));
+  border-radius: 16px;
   box-shadow: var(--shadow-card);
-  padding: 34px;
-  display: flex; flex-direction: column;
+  padding: 36px 38px 34px;
+  overflow: clip;
 }
-.pricecard--signal { --glow-o: 0; }
-.pricecard--signal::before {
-  /* pointer-tracked border glow (spotlight pattern, restrained) */
-  content: ""; position: absolute; inset: -1px;
-  border-radius: inherit; pointer-events: none;
-  padding: 1px;
-  background: radial-gradient(220px 220px at var(--gx, 50%) var(--gy, 0%),
-              color-mix(in srgb, var(--signal) 85%, transparent), transparent 70%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  opacity: var(--glow-o);
-  transition: opacity var(--dur-base) ease;
-}
-.pricecard--signal { border-color: color-mix(in srgb, var(--signal) 55%, var(--border)); }
-.pricecard--signal:hover { --glow-o: 1; }
-.pricecard__label {
-  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+.plan__label {
+  font-size: 12px; font-weight: 500;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--signal-ink);
+}
+.plan__body {
+  display: grid; grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px; margin-top: 28px; align-items: center;
+}
+.plan__equation {
+  display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
+}
+.plan__term { display: grid; gap: 10px; justify-items: start; }
+.plan__amount {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(48px, 5.4vw, 72px); line-height: 0.92;
+  letter-spacing: -0.04em; color: var(--text-heading);
+  font-variant-numeric: tabular-nums;
+}
+.plan__term-label {
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--text-muted);
 }
-.pricecard__price {
-  display: flex; align-items: flex-end; gap: 9px; margin-top: 16px;
+.plan__plus {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(30px, 3vw, 44px); line-height: 1;
+  color: var(--signal); margin-bottom: 20px;
 }
-.pricecard__amount {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: 60px; line-height: 0.9; letter-spacing: -0.04em;
-  color: var(--text-heading);
-  font-variant-numeric: tabular-nums;
+.plan__groups {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
 }
-.pricecard__suffix {
-  font-family: var(--font-mono); font-size: 14px;
-  color: var(--text-muted); margin-bottom: 8px;
+.plan__group-head {
+  font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--signal-ink);
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
 }
-.pricecard__title {
-  font-weight: 600; font-size: 21px; letter-spacing: -0.02em;
-  color: var(--text-heading); margin-top: 12px;
-}
-.pricecard__desc {
-  margin-top: 10px; font-size: 15px; line-height: 1.6;
-  color: var(--text-secondary);
-}
-.pricecard__items {
-  font-family: var(--font-mono); font-size: 13.5px;
-  color: var(--text-primary); margin-top: 24px;
-  font-variant-numeric: tabular-nums;
-}
-.pricecard__item {
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 12px; align-items: baseline;
+.plan__item {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px;
+  align-items: baseline;
   padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 13px;
 }
-.pricecard__item span:first-child { color: var(--text-secondary); }
-.pricecard__item span:last-child {
+.plan__item span:first-child { color: var(--text-secondary); }
+.plan__item span:last-child {
   color: var(--text-heading); white-space: nowrap;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  font-size: 11px; font-weight: 500;
 }
-.pricecard__total {
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 12px; align-items: baseline; padding-top: 16px;
-  font-family: var(--font-mono); font-size: 13.5px;
+.plan__foot {
+  margin-top: 30px; padding-top: 26px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
 }
-.pricecard__total span:first-child { color: var(--text-heading); font-weight: 500; }
-.pricecard__total span:last-child {
-  font-family: var(--font-display); font-weight: 600; font-size: 19px;
-  letter-spacing: -0.02em; color: var(--text-heading); white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+.plan__both {
+  font-size: 13.5px; color: var(--text-primary);
+  letter-spacing: 0.01em; max-width: 52ch;
 }
-.pricecard__cta { margin-top: 26px; }
-.pricecard__cta .btn { width: 100%; }
+@media (max-width: 920px) {
+  .plan { padding: 26px 22px; }
+  .plan__body { grid-template-columns: 1fr; gap: 30px; }
+  .plan__equation { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .plan__plus { margin-bottom: 0; }
+  .plan__groups { grid-template-columns: 1fr; gap: 22px; }
+  .plan__foot { flex-direction: column; align-items: stretch; text-align: center; }
+  .plan__foot .btn { justify-content: center; }
+}
 .pricing__note {
   text-align: center; margin-top: 32px;
   font-family: var(--font-mono); font-size: 13px; line-height: 1.7;
@@ -841,7 +835,7 @@
 
 /* the live beam — a slow traveling glint on the monthly card ("live & handled") */
 @supports (offset-path: rect(0 0 0 0)) {
-  .pricecard--signal .beam {
+  .plan .beam {
     position: absolute; inset: 0; border-radius: inherit;
     pointer-events: none;
     border: 1.5px solid transparent;
@@ -849,7 +843,7 @@
     mask-clip: padding-box, border-box;
     mask-composite: intersect;
   }
-  .pricecard--signal .beam::after {
+  .plan .beam::after {
     content: ""; position: absolute;
     width: 110px; aspect-ratio: 1;
     background: linear-gradient(to left, var(--signal), var(--signal-bright), transparent);
@@ -858,7 +852,7 @@
   }
   @keyframes beamTravel { to { offset-distance: 100%; } }
   @media (prefers-reduced-motion: reduce) {
-    .pricecard--signal .beam::after { animation: none; display: none; }
+    .plan .beam::after { animation: none; display: none; }
   }
 }
 

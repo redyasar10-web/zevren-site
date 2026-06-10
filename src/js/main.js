@@ -337,8 +337,8 @@ $$("[data-count]").forEach((el) => {
   });
 });
 
-$$(".pricecard__items").forEach((list) => {
-  const items = $$(".pricecard__item", list);
+$$(".plan__group").forEach((list) => {
+  const items = $$(".plan__item", list);
   if (!REDUCED) gsap.set(items, { opacity: 0 });
   ScrollTrigger.create({
     trigger: list,
@@ -354,7 +354,7 @@ $$(".pricecard__items").forEach((list) => {
 });
 
 /* pointer-tracked border glow — user-initiated only */
-const sigCard = $(".pricecard--signal");
+const sigCard = null; // spotlight retired — the single plan card carries the beam
 if (sigCard && !REDUCED) {
   sigCard.addEventListener("pointermove", (e) => {
     const r = sigCard.getBoundingClientRect();
