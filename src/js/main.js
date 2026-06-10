@@ -9,11 +9,14 @@
    4. Micro-interactions are user-initiated, small, fast.
    5. prefers-reduced-motion disables everything.
    ============================================================ */
+import { inject } from '@vercel/analytics';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SignalField } from "./shader.js";
 import { HeatGrid } from "./heatgrid.js";
 import { scramble } from "./scramble.js";
+
+inject();
 
 gsap.registerPlugin(ScrollTrigger);
 
